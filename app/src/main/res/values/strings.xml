@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TP4</string>
+    <string name="super_tout_fonctionne">Super, tout fonctionne</string>
+    <string name="hautDePage">Liste des capteurs</string>
+    <string name="nameSensor">Nom</string>
+    <string name="messageSensor"></string>
+    <string name="vendor">Vendeur</string>
+    <string name="power">Puissance</string>
+    <string name="version">Version</string>
+    <string name="resolution">Resolution</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="X">ForceX :</string>
+    <string name="Y">ForceY :</string>
+    <string name="Z">ForceZ :</string>
+    <string name="specifique">Liste des attributs spécifiques</string>
+</resources>

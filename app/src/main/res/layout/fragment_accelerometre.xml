@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentAccelerometre"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".FragmentAccelerometre">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/specifique"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/specifique"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/acceX"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/X" />
+
+        <TextView
+            android:id="@+id/acceY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Y" />
+
+        <TextView
+            android:id="@+id/acceZ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Z" />
+    </LinearLayout>
+</FrameLayout>
