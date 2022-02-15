@@ -26,6 +26,8 @@ public class SensorActivity extends AppCompatActivity {
     private TextView message;
     private SensorManager sensorManager;
     private FragmentManager fm ;
+    FragmentTransaction ft;
+    Fragment frag;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class SensorActivity extends AppCompatActivity {
         sensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
         fm=this.getSupportFragmentManager();
 
+        /* On récupère les TextView de la page de base, sans les fragments */
         name=(TextView) findViewById(R.id.sensorName);
         vendor=(TextView) findViewById(R.id.vendeur);
         power=(TextView) findViewById(R.id.power);
@@ -41,23 +44,43 @@ public class SensorActivity extends AppCompatActivity {
         resolution=(TextView) findViewById(R.id.resolution);
         message=(TextView) findViewById(R.id.sensorMessage);
 
+        /* On récupère les données passées par l'intention */
         Intent intent=this.getIntent();
         String sensorName=intent.getStringExtra(Constante.SENSORNAME);
+
         name.setText(sensorName+"");
+
+        /* On cherche le Capteur associé au nom donnée */
         for(Sensor s : sensorManager.getSensorList(Sensor.TYPE_ALL)){
             if(sensorName.equals(s.getName())){
+                /* On affiche les données du capteur */
                 vendor.setText("Vendor : "+s.getVendor());
                 power.setText("Power : "+s.getPower());
                 version.setText("Version : "+s.getVersion());
                 resolution.setText("Resolution : "+s.getResolution());
                 message.setText("");
+
+                /* Si c'est un capteur accéléromètre, on ajoute le fragment accéléromètre qui contient les données
+                spécifiques à ce capteur
+                 */
                 if(s.getType()==Sensor.TYPE_ACCELEROMETER){
-                    FragmentTransaction ft=fm.beginTransaction();
-                    ft.add(R.id.layoutContainer,new FragmentAccelerometre());
+                    ft=fm.beginTransaction();
+                    frag=new FragmentAccelerometre();
+                    ft.add(R.id.layoutContainer,frag);
+                    ft.commit();
+                }
+                /* Si c'est un capteur accéléromètre, on ajoute le fragment proximity qui contient les données
+                spécifiques à ce capteur
+                 */
+                if(s.getType()==Sensor.TYPE_PROXIMITY){
+                    ft=fm.beginTransaction();
+                    frag=new FragmentProximity();
+                    ft.add(R.id.layoutContainer,frag);
                     ft.commit();
                 }
             }
         }
+
 
     }
 

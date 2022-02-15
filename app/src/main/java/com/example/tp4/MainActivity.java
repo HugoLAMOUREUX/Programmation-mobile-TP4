@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        lesCapteurs= sensorManager.getSensorList(Sensor.TYPE_ALL);
+        lesCapteurs= sensorManager.getSensorList(Sensor.TYPE_ALL);  // On obtient la liste des capteurs
 
         recyclerView =(RecyclerView) findViewById(R.id.idRv);
         capteurAdapter=new CapteurAdapteur(lesCapteurs);

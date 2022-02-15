@@ -14,4 +14,5 @@
     <string name="Y">ForceY :</string>
     <string name="Z">ForceZ :</string>
     <string name="specifique">Liste des attributs spécifiques</string>
+    <string name="proximityspec">Liste des attributs spécifiques :</string>
 </resources>

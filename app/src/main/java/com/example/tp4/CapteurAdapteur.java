@@ -41,6 +41,7 @@ public class CapteurAdapteur extends RecyclerView.Adapter<CapteurAdapteur.MyView
         Sensor sensor=lesCapteurs.get(position);
         holder.tvNom.setText(sensor.getName());
 
+        /* Fonction qui nous amène vers l'activité du capteur */
         holder.itemView.setOnClickListener((view) -> {
             Intent intent=new Intent(view.getContext(),SensorActivity.class);
             intent.putExtra(Constante.SENSORNAME,sensor.getName());
